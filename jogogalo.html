@@ -94,6 +94,15 @@
 
         
         function ganhou() {
+            if (cx1.innerHTML.trim() != ""
+                && cx1.innerHTML.trim() == cx2.innerHTML.trim()
+                && cx2.innerHTML.trim() == cx3.innerHTML.trim()){
+                // 1 Linha
+                podeJogar = false;
+                cx1.classList.add('ganhou')
+                cx2.classList.add('ganhou')
+                cx3.classList.add('ganhou')
+                }
             return false;
         }
         function tabuleiroCheio(){
