@@ -26,6 +26,13 @@
             <div class="info">
                 <h2 STYLE="text-align: center;">Jogo do Galo</h2>
 
+                <button id="btn">ler OpenAI</button>
+                <pre id="output"></pre>
+
+                <div id="btnreload">
+                    <a href="?v=2"> Reiniciar Jogo</a>
+                </div>
+
                 <div class="caixa-geral">
                     <div id="cx1" class="caixa-jogo-galo" onclick="mudarElemento('cx1')"></div>
                     <div id="cx2" class="caixa-jogo-galo" onclick="mudarElemento('cx2')"></div>
@@ -96,13 +103,120 @@
         function ganhou() {
             if (cx1.innerHTML.trim() != ""
                 && cx1.innerHTML.trim() == cx2.innerHTML.trim()
-                && cx2.innerHTML.trim() == cx3.innerHTML.trim()){
-                // 1 Linha
+                && cx2.innerHTML.trim() == cx3.innerHTML.trim() ){
+                // Linha A1 A2 A3
                 podeJogar = false;
                 cx1.classList.add('ganhou')
                 cx2.classList.add('ganhou')
                 cx3.classList.add('ganhou')
-                }
+                cx4.classList.add('perdeu')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('perdeu')
+                } else if (cx4.innerHTML.trim() != ""
+                && cx4.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx6.innerHTML.trim() ){
+                // B1 B2 B3 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('ganhou')
+                cx5.classList.add('ganhou')
+                cx6.classList.add('ganhou')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('perdeu')
+                
+                } else if (cx7.innerHTML.trim() != ""
+                && cx7.innerHTML.trim() == cx8.innerHTML.trim()
+                && cx8.innerHTML.trim() == cx9.innerHTML.trim() ){
+                // C1 C2 C3 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('ganhou')
+                cx8.classList.add('ganhou')
+                cx9.classList.add('ganhou')
+                } else if (cx1.innerHTML.trim() != ""
+                && cx1.innerHTML.trim() == cx4.innerHTML.trim()
+                && cx4.innerHTML.trim() == cx7.innerHTML.trim() ){
+                // A1 B1 C1 Linha
+                podeJogar = false;
+                cx1.classList.add('ganhou')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('ganhou')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('ganhou')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('perdeu')
+                } else if (cx3.innerHTML.trim() != ""
+                && cx3.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx7.innerHTML.trim() ){
+                
+                // Diagonal_1 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('ganhou')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('ganhou')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('ganhou')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('perdeu')
+                } else if (cx1.innerHTML.trim() != ""
+                && cx1.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx9.innerHTML.trim() ){
+                
+                // Diagonal_2 Linha
+                podeJogar = false;
+                cx1.classList.add('ganhou')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('ganhou')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('ganhou')
+                }else if (cx2.innerHTML.trim() != ""
+                && cx2.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx8.innerHTML.trim() ){
+                // A2 B2 C2 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('ganhou')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('ganhou')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('ganhou')
+                cx9.classList.add('perdeu')
+                } else if (cx3.innerHTML.trim() != ""
+                && cx3.innerHTML.trim() == cx6.innerHTML.trim()
+                && cx6.innerHTML.trim() == cx9.innerHTML.trim() ){
+                // A3 B3 C3 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('ganhou')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('ganhou')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('ganhou')
+                } 
             return false;
         }
         function tabuleiroCheio(){
