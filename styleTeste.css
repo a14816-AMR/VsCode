@@ -1,0 +1,172 @@
+* {
+    font-family: arial;
+    /*border: 1px solid #000;*/
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+header {   
+    /*border: 1px solid #ff0000;*/
+    position: relative;
+    padding: 10px;
+}
+#headXPTO {
+    background: #000;
+}
+header .logo {
+    width: 40%;  
+    float: left;
+    padding: 25px 0px;
+    font-family: "Momo Signature", cursive;
+    font-weight: 400;
+    font-style: normal;    
+    font-size: 30px;
+}
+header .navbar {
+    width: 60%;
+    float: right;
+    text-align: right;
+}
+.navbar a {
+    color: #c00;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:12px;
+    padding: 15px;
+}
+.navbar a:hover {
+    color: #fc0;
+}
+
+/** content**/
+.content {   
+    /*border: 1px solid #0f0;*/
+    width:100%;
+}
+
+/** artigo com maior destaque */
+.mainArticle { width:100%; }
+.mainArticle img { width:100%; }
+.mainArticle .info { padding:15px;}
+
+
+/** jogo do galo */
+#btnreload {
+    text-align: center;
+    /*display:none;*/
+    margin: 20px;
+}
+#btnreload a {
+    background: #fc0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #000;
+    /* Firefox */
+    -moz-transition: all 0.4s ease-in;
+    /* Webkit */
+    -webkit-transition: all 0.4s ease-in;
+    /* Opera */ 
+    -o-transition: all 0.4s ease-in;
+    /* Standard */
+    transition: all 0.4s ease-in;
+}
+#btnreload a:hover {
+    background: #c00;
+    color: #fff;
+}
+
+/* Caixa e elementos do jogo do galo principal */
+.caixa-geral {
+    width: 300px; margin: 0 auto; 
+} 
+
+.caixa-jogo-galo {
+    background: #ddd;
+    float: left;
+    width:98px;
+    height: 73px;
+    text-align:center;
+    font-size:40px;
+    border: 1px solid #fff;
+    padding-top: 25px;
+    border-radius:  20px;
+    cursor: pointer;
+    /* Firefox */
+    -moz-transition: all 0.4s ease-in;
+    /* Webkit */
+    -webkit-transition: all 0.4s ease-in;
+    /* Opera */ 
+    -o-transition: all 0.4s ease-in;
+    /* Standard */
+    transition: all 0.4s ease-in;
+}
+ /*Sub Caixa e elementos do jogo do galo */
+.sub-caixa {
+     width: 100px; margin: 0 auto; 
+     margin-left: 50px ; 
+} 
+
+.sub-caixa-jogo-galo {
+    background: #ddd;
+    float: left;
+
+    width: 15px;
+    height: 10px;
+    text-align:center;
+    font-size:40px;
+    border: 1px solid #fff;
+    padding-top: 0px;
+    border-radius:  0px;
+    cursor: pointer;
+    /* Firefox */
+    -moz-transition: all 0.4s ease-in;
+    /* Webkit */
+    -webkit-transition: all 0.4s ease-in;
+    /* Opera */ 
+    -o-transition: all 0.4s ease-in;
+    /* Standard */
+    transition: all 0.4s ease-in;
+}
+.caixa-jogo-galo:hover{
+    background:#999;
+}
+.caixa-jogo-galo.ganhou{
+    background: #6cd30c; color: #fff;
+}
+.caixa-jogo-galo.perdeu {
+    background: rgb(255, 126, 126);
+}
+.caixa-jogo-galo.tabuleirocheio {
+    background: rgb(176, 32, 243); color: #fff;
+}
+
+.footer {   
+    /*border: 1px solid #00f;*/
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 30px;
+}
+.footer a {
+    color: #c00;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size:8px;
+    padding: 5px;
+}
+.footer a:hover {
+    color: #fc0;
+    
+}
+
+
+@media screen and (max-width: 640px) {
+    header .logo, header .navbar {
+        width: 100%;  
+        text-align:center;
+    }
+}
+

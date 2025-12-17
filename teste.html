@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto #1</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap" rel="stylesheet">    
+    <link rel="stylesheet" href="./styleTeste.css">
+
+</head>
+<body>
+    <header>
+        <div class="logo">OFICINA</div>
+        <div class="navbar">
+            <a href="jogogalo.html">Jogo do Galo</a>
+            <a href="sobremim.html">Sobre Mim</a>                        
+        </div>
+        <div style="clear:both;"></div>
+    </header> 
+
+    <DIV class="content">
+        <div class="mainArticle">
+            <div class="info">
+                <h2 STYLE="text-align: center;">Jogo do Galo</h2>
+
+                <div id="btnreload">
+                    <a href="?v=2"> Reiniciar Jogo</a>
+                </div>
+
+                <div class="caixa-geral">
+                    <div id="jg1" class="caixa-jogo-galo" onclick="mudarElemento('jg1')"></div>
+                    <div id="jg2" class="caixa-jogo-galo" onclick="mudarElemento('jg2')"></div>
+                    <div id="jg3" class="caixa-jogo-galo" onclick="mudarElemento('jg3')"></div>
+                    <div style="clear:both;"></div>
+
+                    <div id="jg4" class="caixa-jogo-galo" onclick="mudarElemento('jg4')"></div>
+                    <div id="jg5" class="caixa-jogo-galo" onclick="mudarElemento('jg5')"></div>
+                    <div id="jg6" class="caixa-jogo-galo" onclick="mudarElemento('jg6')"></div>
+                    <div style="clear:both;"></div>
+
+                    <div id="jg7" class="caixa-jogo-galo" onclick="mudarElemento('jg7')"></div>
+                    <div id="jg8" class="caixa-jogo-galo" onclick="mudarElemento('jg8')"></div>
+                    <div id="jg9" class="caixa-jogo-galo" onclick="mudarElemento('jg9')"></div>
+                    <div style="clear:both;"></div>
+                </div>
+            </div>
+        </div>
+    </DIV> 
+
+    <DIV class="footer">
+        <a href=''>Politica de Privacidade</a>
+        <a href=''>Politica de Cookies</a>
+        <a href=''>Direitos de Autor</a>
+        <br />
+        2025 &copy; made by ME
+    </DIV> 
+    
+    <script src="./script.js"></script> 
+    <script>
+        let jogador = "X";
+        let podeJogar = true;
+
+
+
+        let jg1 = document .getElementById('jg1');
+        let jg2 = document .getElementById('jg2');
+        let jg3 = document .getElementById('jg3');
+        let jg4 = document .getElementById('jg4');
+        let jg5 = document .getElementById('jg5');
+        let jg6 = document .getElementById('jg6');
+        let jg7 = document .getElementById('jg7');
+        let jg8 = document .getElementById('jg8');
+        let jg9 = document .getElementById('jg9');
+
+        //jg1.innerHTML = "<p>Olá</p>"; 
+
+        for(let i = 0; i < 9; i++){
+            let varjg = `jg${i+1}`;
+            document.getElementById(varjg).innerHTML = `<div id="bx${i+1}" class="sub-caixa">`;
+            for(let i = 0; i < 9; i++){
+                document.getElementById(`bx${i+1}`).innerHTML += `<div id="cx${i+1}" class="sub-caixa-jogo-galo"></div>`;
+                console.log("Vou popular o jogo " + varjg);
+                // if ( (i+1) == 3 || (i+1) == 6 || (i+1) == 9){
+                //     document.getElementById(varjg).innerHTML += `<div style="clear:both;"></div>`;
+                // }else {
+                // }
+                
+            }
+            document.getElementById(varjg).innerHTML += `</div>`;
+        }
+
+        function mudarElemento(caixa) {
+            let cx = document.getElementById(caixa);
+
+            if (cx.innerHTML.trim() == "" && podeJogar){
+                cx.innerHTML = jogador;
+                mudarJogador();
+                if (!ganhou()){
+                    tabuleiroCheio()
+                }
+            }
+        }
+        function mudarJogador() {
+            if (jogador == 'X'){
+                jogador = "O"
+            } else {
+                jogador = "X"
+            }
+        }
+    
+        function ganhou() { // Verificar se ganhou
+            if (cx1.innerHTML.trim() != ""
+                && cx1.innerHTML.trim() == cx2.innerHTML.trim()
+                && cx2.innerHTML.trim() == cx3.innerHTML.trim() ){ // Linha A1 A2 A3
+                podeJogar = false;
+                cx1.classList.add('ganhou')
+                cx2.classList.add('ganhou')
+                cx3.classList.add('ganhou')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('perdeu')
+                return true;
+                } else if (cx4.innerHTML.trim() != ""
+                && cx4.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx6.innerHTML.trim() ){ // B1 B2 B3 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('ganhou')
+                cx5.classList.add('ganhou')
+                cx6.classList.add('ganhou')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('perdeu')
+                return true;
+                } else if (cx7.innerHTML.trim() != ""
+                && cx7.innerHTML.trim() == cx8.innerHTML.trim()
+                && cx8.innerHTML.trim() == cx9.innerHTML.trim() ){ // C1 C2 C3 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('ganhou')
+                cx8.classList.add('ganhou')
+                cx9.classList.add('ganhou')
+                return true;
+                } else if (cx1.innerHTML.trim() != ""
+                && cx1.innerHTML.trim() == cx4.innerHTML.trim()
+                && cx4.innerHTML.trim() == cx7.innerHTML.trim() ){ // A1 B1 C1 Linha
+                podeJogar = false;
+                cx1.classList.add('ganhou')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('ganhou')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('ganhou')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('perdeu')
+                return true;
+                } else if (cx2.innerHTML.trim() != ""
+                && cx2.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx8.innerHTML.trim() ){ // A2 B2 C2 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('ganhou')
+                cx3.classList.add('perdeu')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('ganhou')
+                cx6.classList.add('perdeu')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('ganhou')
+                cx9.classList.add('perdeu')
+                return true;
+                } else if (cx3.innerHTML.trim() != ""
+                && cx3.innerHTML.trim() == cx6.innerHTML.trim()
+                && cx6.innerHTML.trim() == cx9.innerHTML.trim() ){ // A3 B3 C3 Linha
+                podeJogar = false;
+                cx1.classList.add('perdeu')
+                cx2.classList.add('perdeu')
+                cx3.classList.add('ganhou')
+                cx4.classList.add('perdeu')
+                cx5.classList.add('perdeu')
+                cx6.classList.add('ganhou')
+                cx7.classList.add('perdeu')
+                cx8.classList.add('perdeu')
+                cx9.classList.add('ganhou')
+                return true;
+                } else if (cx3.innerHTML.trim() != ""
+                && cx3.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx7.innerHTML.trim() ){ // Diagonal_1 Linha
+                    podeJogar = false;
+                    cx1.classList.add('perdeu')
+                    cx2.classList.add('perdeu')
+                    cx3.classList.add('ganhou')
+                    cx4.classList.add('perdeu')
+                    cx5.classList.add('ganhou')
+                    cx6.classList.add('perdeu')
+                    cx7.classList.add('ganhou')
+                    cx8.classList.add('perdeu')
+                    cx9.classList.add('perdeu')
+                    return true;
+                } else if (cx1.innerHTML.trim() != ""
+                && cx1.innerHTML.trim() == cx5.innerHTML.trim()
+                && cx5.innerHTML.trim() == cx9.innerHTML.trim() ){ // Diagonal_2 Linha
+                    podeJogar = false;
+                    cx1.classList.add('ganhou')
+                    cx2.classList.add('perdeu')
+                    cx3.classList.add('perdeu')
+                    cx4.classList.add('perdeu')
+                    cx5.classList.add('ganhou')
+                    cx6.classList.add('perdeu')
+                    cx7.classList.add('perdeu')
+                    cx8.classList.add('perdeu')
+                    cx9.classList.add('ganhou')
+                    return true;
+                }
+            return false;
+        }
+        function tabuleiroCheio(){ // Verificar se o tabuleiro está cheio
+            if (cx1.innerHTML.trim() != ""
+                && cx2.innerHTML.trim() != ""
+                && cx3.innerHTML.trim() != ""
+                && cx4.innerHTML.trim() != ""
+                && cx5.innerHTML.trim() != ""
+                && cx6.innerHTML.trim() != ""
+                && cx7.innerHTML.trim() != ""
+                && cx8.innerHTML.trim() != ""
+                && cx9.innerHTML.trim() != ""
+                ) { 
+                    podeJogar = false;
+                    cx1.classList.add('tabuleirocheio');
+                    cx2.classList.add('tabuleirocheio');
+                    cx3.classList.add('tabuleirocheio');
+                    cx4.classList.add('tabuleirocheio');
+                    cx5.classList.add('tabuleirocheio');
+                    cx6.classList.add('tabuleirocheio');
+                    cx7.classList.add('tabuleirocheio');
+                    cx8.classList.add('tabuleirocheio');
+                    cx9.classList.add('tabuleirocheio');
+                    //alert("asd")
+                    return true;
+            }
+            return false;
+        }
+
+    </script>
+</body>
+</html>
