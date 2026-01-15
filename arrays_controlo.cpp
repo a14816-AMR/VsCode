@@ -49,3 +49,17 @@
 
 
 
+ /*
+TPC 
+- Pedir ao ultilizador mais 5 numeros e adicionar no array (9, 2, 0, 6, 4, ...)
+- Criar 2 ararys um de numeros pares e o outro de numeros impar e filtrar o array de cima e colocar nos 2 arrays (Par e imapr)
+- Mostrar os arrays par e impar
+
+
+
+W3 scholls controlar array sem posição definidas 
+*/
+
+
+
+
